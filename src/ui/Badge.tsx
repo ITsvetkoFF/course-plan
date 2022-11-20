@@ -21,6 +21,6 @@ export const Badge = styled.span<{
   font-size: 0.5em;
   line-height: 1em;
   margin: 1em;
-  padding: 0.25em;
+  padding: 0.25em 0.5em;
   border-radius: 0.5rem;
 `;
