@@ -2,7 +2,7 @@ import { Lesson } from "src/course/Lesson";
 import { CourseItem } from "src/course/useCourses";
 import { useEffect, useState } from "react";
 import { deepCopy } from "src/utils/objects";
-import { useStorage } from "src/hooks/useStorage";
+import { useCourseStorage } from "src/course/useCourseStorage";
 
 export type CourseInternalState = CourseItem & {
   completed?: boolean;
@@ -14,10 +14,10 @@ export const CourseList = ({
 }: {
   initialCourses: CourseItem[];
 }) => {
-  const { getCourseFromStorage, setCourseToStorage } = useStorage();
+  const { getCourseFromStorage, setCourseToStorage } = useCourseStorage();
 
   const [courses, setCourses] = useState<CourseInternalState[]>(
-    getCourseFromStorage() || initialCourses
+    getCourseFromStorage() ?? initialCourses
   );
 
   useEffect(() => {

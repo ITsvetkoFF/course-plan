@@ -34,7 +34,7 @@ export const Lesson = ({
       </h2>
       <dl>
         <dt>Short summary</dt>
-        <dd>{lesson.shortSummary || <i>Not provided</i>}</dd>
+        <dd>{lesson.shortSummary ?? <i>Not provided</i>}</dd>
       </dl>
       <a href={lesson.youtube} target="_blank">
         Youtube link
@@ -45,7 +45,7 @@ export const Lesson = ({
           <input
             type="checkbox"
             /* Discuss changing to uncontrolled */
-            checked={lesson?.completed || false}
+            checked={lesson?.completed ?? false}
             onChange={(e) => {
               onLessonChange({
                 ...deepCopy(lesson),
@@ -60,7 +60,7 @@ export const Lesson = ({
           name="note"
           id={lesson.name + "_form"}
           rows={5}
-          value={lesson.note || ""}
+          value={lesson.note ?? ""}
           onChange={(e) => {
             onLessonChange({
               ...deepCopy(lesson),
